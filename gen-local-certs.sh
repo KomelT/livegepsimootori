@@ -50,8 +50,8 @@ case "${unameOut}" in
     *)          machine="UNKNOWN:${unameOut}"
 esac
 if [ "$(uname)" == "Mac" ]; then
-    sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ${NAME}CA.pem
+    security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain ${NAME}CA.pem
 elif [ "$(uname)" == "Linux" ]; then
-    sudo cp ${NAME}CA.pem /usr/local/share/ca-certificates/${NAME}CA.crt
-    sudo update-ca-certificates
+    cp ${NAME}CA.pem /usr/local/share/ca-certificates/${NAME}CA.crt
+    update-ca-certificates
 fi
