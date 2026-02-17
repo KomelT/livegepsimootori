@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
-NAME=routechoices
-DOMAIN=routechoices.dev # Use your own domain name
+NAME=meshtrail
+DOMAIN=meshtrail.meshnet.si # Use your own domain name
 
 mkdir -p "letsencrypt/live/${DOMAIN}/"
 cd "letsencrypt/live/${DOMAIN}/"
