@@ -15,19 +15,19 @@ context("Test proxy pages", () => {
 	});
 
 	it("Visit livelox proxy page", () => {
-		const page = "https://livelox.routechoices.dev/886369/";
+		const page = "https://livelox.test.meshtrail.si/886369/";
 		cy.visit(page);
 		testPage(page);
 	});
 
 	it("Visit loggator proxy page", () => {
-		const page = "https://loggator.routechoices.dev/EADQWA/";
+		const page = "https://loggator.test.meshtrail.si/EADQWA/";
 		cy.visit(page);
 		testPage(page);
 	});
 
 	it("Visit gpsseuranta proxy page", () => {
-		const page = "https://gpsseuranta.routechoices.dev/20241205VJyoA/";
+		const page = "https://gpsseuranta.test.meshtrail.si/20241205VJyoA/";
 		cy.visit(page);
 		testPage(page);
 	});

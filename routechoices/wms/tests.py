@@ -13,7 +13,7 @@ from routechoices.core.models import Club, Event, Map, MapAssignation
 @override_settings(MEDIA_ROOT=Path(tempfile.gettempdir()))
 class MapApiTestCase(EssentialApiBase):
     def test_get_tile(self):
-        client = APIClient(HTTP_HOST="wms.routechoices.dev")
+        client = APIClient(HTTP_HOST="wms.test.meshtrail.si")
         url = self.reverse_and_check("wms_service", "/", "wms")
         club = Club.objects.create(name="Test club", slug="club")
         raster_map = Map.objects.create(
@@ -195,7 +195,7 @@ class MapApiTestCase(EssentialApiBase):
 
     def test_should_hit_cache(self):
         cache.clear()
-        client = APIClient(HTTP_HOST="wms.routechoices.dev")
+        client = APIClient(HTTP_HOST="wms.test.meshtrail.si")
         url = self.reverse_and_check("wms_service", "/", "wms")
         club = Club.objects.create(name="Test club", slug="club")
         raster_map = Map.objects.create(

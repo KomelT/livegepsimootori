@@ -25,7 +25,7 @@ from routechoices.core.models import (
 
 class EssentialDashboardBase(APITestCase):
     def setUp(self):
-        self.client = APIClient(HTTP_HOST="dashboard.routechoices.dev")
+        self.client = APIClient(HTTP_HOST="dashboard.test.meshtrail.si")
         self.club = Club.objects.create(name="My Club", slug="myclub")
         self.user = User.objects.create_user(
             "alice", f"alice{random.randrange(1000)}@example.com", "pa$$word123"
@@ -44,7 +44,7 @@ class EssentialDashboardBase(APITestCase):
         url = reverse(
             path, host="dashboard", kwargs=extra_kwargs, host_kwargs=host_kwargs
         )
-        self.assertEqual(url, f"//dashboard.routechoices.dev{expected}")
+        self.assertEqual(url, f"//dashboard.test.meshtrail.si{expected}")
         return url
 
 
@@ -1164,7 +1164,7 @@ class TestDashboard(EssentialDashboardBase):
 
 class TestInviteFlow(APITestCase):
     def setUp(self):
-        self.client = APIClient(HTTP_HOST="dashboard.routechoices.dev")
+        self.client = APIClient(HTTP_HOST="dashboard.test.meshtrail.si")
         self.club = Club.objects.create(name="My Club", slug="myclub")
         self.user = User.objects.create_user(
             "alice", f"alice{random.randrange(1000)}@example.com", "pa$$word123"
@@ -1243,7 +1243,7 @@ class TestInviteFlow(APITestCase):
         self.assertEqual(res.status_code, status.HTTP_302_FOUND)
         self.assertRedirects(
             res,
-            "//dashboard.routechoices.dev",
+            "//dashboard.test.meshtrail.si",
             target_status_code=status.HTTP_302_FOUND,
         )
 
@@ -1273,7 +1273,7 @@ class TestInviteFlow(APITestCase):
         )
         res = self.client.post(accept_link)
         self.assertEqual(res.status_code, status.HTTP_302_FOUND)
-        self.assertRedirects(res, "https://dashboard.routechoices.dev/login")
+        self.assertRedirects(res, "https://dashboard.test.meshtrail.si/login")
         self.assertFalse(self.club.admins.filter(id=self.user2.id).exists())
 
         # Wrong user try to accept
@@ -1308,6 +1308,6 @@ class TestInviteFlow(APITestCase):
         self.assertEqual(res.status_code, status.HTTP_302_FOUND)
         self.assertRedirects(
             res,
-            "https://dashboard.routechoices.dev/login",
+            "https://dashboard.test.meshtrail.si/login",
             target_status_code=status.HTTP_302_FOUND,
         )

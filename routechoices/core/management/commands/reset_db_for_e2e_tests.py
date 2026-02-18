@@ -14,7 +14,7 @@ class Command(BaseCommand):
         call_command("flush", "--noinput")
         call_command("migrate", "--noinput")
         s = Site.objects.first()
-        s.domain = "routechoices.dev"
+        s.domain = "test.meshtrail.si"
         s.name = "Routechoices.com"
         s.save()
         Device.objects.create(aid=12345678)

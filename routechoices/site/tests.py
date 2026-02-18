@@ -48,7 +48,7 @@ class SiteViewsTestCase(EssentialApiBase):
             end_date=arrow.now().shift(hours=-1).datetime,
         )
 
-        client = APIClient(HTTP_HOST="www.routechoices.dev")
+        client = APIClient(HTTP_HOST="www.test.meshtrail.si")
 
         url = self.reverse_and_check("site:public_events_view", "/events", host="www")
         response = client.get(url)
@@ -73,7 +73,7 @@ class SiteViewsTestCase(EssentialApiBase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_semi_static_pages_loads(self):
-        client = APIClient(HTTP_HOST="www.routechoices.dev")
+        client = APIClient(HTTP_HOST="www.test.meshtrail.si")
         url = self.reverse_and_check("site:landing_page", "/", host="www")
         response = client.get(url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -103,7 +103,7 @@ class SiteViewsTestCase(EssentialApiBase):
         EmailAddress.objects.create(
             user=self.user, email=self.user.email, primary=True, verified=True
         )
-        client = APIClient(HTTP_HOST="www.routechoices.dev")
+        client = APIClient(HTTP_HOST="www.test.meshtrail.si")
         client.force_login(self.user)
         url = self.reverse_and_check("site:contact_view", "/contact", host="www")
         response = client.post(

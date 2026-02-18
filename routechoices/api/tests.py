@@ -29,7 +29,7 @@ from routechoices.lib.helpers import epoch_to_datetime
 
 class EssentialApiBase(APITestCase):
     def setUp(self):
-        self.client = APIClient(HTTP_HOST="api.routechoices.dev")
+        self.client = APIClient(HTTP_HOST="api.test.meshtrail.si")
         self.user = User.objects.create_user(
             "alice", f"alice{random.randrange(1000)}@example.com", "pa$$word123"
         )
@@ -44,7 +44,7 @@ class EssentialApiBase(APITestCase):
         prefix=None,
     ):
         url = reverse(path, host=host, kwargs=extra_kwargs, host_kwargs=host_kwargs)
-        self.assertEqual(url, f"//{prefix or host}.routechoices.dev{expected}")
+        self.assertEqual(url, f"//{prefix or host}.test.meshtrail.si{expected}")
         return url
 
     def get_device_id(self):
@@ -137,19 +137,19 @@ class EssentialApiTestCase1(EssentialApiBase):
             end_date=arrow.get().shift(hours=-1).datetime,
         )
 
-        e1b = Event.get_by_url("https://club.routechoices.dev/abc")
+        e1b = Event.get_by_url("https://club.test.meshtrail.si/abc")
         self.assertEqual(e1, e1b)
         e3b = Event.get_by_url("https://example.com/ghi")
         self.assertEqual(e3, e3b)
-        e3c = Event.get_by_url("https://alt-club.routechoices.dev/ghi")
+        e3c = Event.get_by_url("https://alt-club.test.meshtrail.si/ghi")
         self.assertEqual(e3, e3c)
         e3d = Event.get_by_url("https://rtchcs.dev/alt-club/ghi")
         self.assertEqual(e3, e3d)
         e = Event.get_by_url("https://www.rtchcs.dev/alt-club/ghi")
         self.assertIsNone(e)
-        e = Event.get_by_url("https://alt-club-routechoices.dev/ghi")
+        e = Event.get_by_url("https://alt-club-test.meshtrail.si/ghi")
         self.assertIsNone(e)
-        e = Event.get_by_url("https://alt-club.routechoices.dev/abc")
+        e = Event.get_by_url("https://alt-club.test.meshtrail.si/abc")
         self.assertIsNone(e)
         e = Event.get_by_url("https://google.com/abc")
         self.assertIsNone(e)
@@ -167,7 +167,7 @@ class EssentialApiTestCase1(EssentialApiBase):
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         res_json = json.loads(res.content)
         self.assertEqual(len(res_json), 1)
-        res = self.client.get(f"{url}?event=https://club.routechoices.dev/def")
+        res = self.client.get(f"{url}?event=https://club.test.meshtrail.si/def")
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         res_json = json.loads(res.content)
         self.assertEqual(len(res_json), 1)

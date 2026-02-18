@@ -8,8 +8,8 @@ commands:
     steps:
       - checkout
       - run: ./gen-local-certs.sh
-      - run: chmod -R 755 ./letsencrypt/live/routechoices.dev/
-      - run: echo "127.0.0.1 routechoices.dev api.routechoices.dev www.routechoices.dev events.routechoices.dev dashboard.routechoices.dev halden-sk.routechoices.dev kangasala-sk.routechoices.dev registration.routechoices.dev livelox.routechoices.dev loggator.routechoices.dev gpsseuranta.routechoices.dev" | sudo tee -a /etc/hosts
+      - run: chmod -R 755 ./letsencrypt/live/test.meshtrail.si/
+      - run: echo "127.0.0.1 test.meshtrail.si api.test.meshtrail.si www.test.meshtrail.si events.test.meshtrail.si dashboard.test.meshtrail.si halden-sk.test.meshtrail.si kangasala-sk.test.meshtrail.si registration.test.meshtrail.si livelox.test.meshtrail.si loggator.test.meshtrail.si gpsseuranta.test.meshtrail.si" | sudo tee -a /etc/hosts
       - run: mkdir -p media/routechoices/maps/
       - run: mv ./.env.dev ./.env
       - run: echo "SECURE_SSL_REDIRECT = False" > ./routechoices/settings_overrides.py
@@ -50,7 +50,7 @@ jobs:
     steps:
       - prepare-docker
       - run: ./dc restart django
-      - run: timeout 300 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' https://www.routechoices.dev/)" != "200" ]]; do sleep 5; done' || false
+      - run: timeout 300 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' https://www.test.meshtrail.si/)" != "200" ]]; do sleep 5; done' || false
       - run: ./test
       - codecov/upload:
           file: coverage.xml
@@ -69,7 +69,7 @@ jobs:
           environment:
             WSGI_FILE: wsgi-with-cov
             NUM_PROCESSES: 1
-      - run: timeout 300 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' https://www.routechoices.dev/)" != "200" ]]; do sleep 5; done' || false
+      - run: timeout 300 bash -c 'while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' https://www.test.meshtrail.si/)" != "200" ]]; do sleep 5; done' || false
       - run: sudo apt update
       - run: sudo apt install -y libgbm-dev
       - browser-tools/install-chrome
