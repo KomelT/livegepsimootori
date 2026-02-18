@@ -42,8 +42,8 @@ services:
     container_name: rc_nginx
     image: rphlo/nginx:latest
     ports:
-      - "443:443/udp"
-      - "443:443/tcp"
+      - "80:80"
+      - "443:443"
     volumes:
       - ../static:/static:ro
       - ../letsencrypt/:/etc/nginx/ssl:ro
