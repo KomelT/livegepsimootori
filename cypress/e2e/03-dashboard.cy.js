@@ -5,7 +5,7 @@ context("Dashboard actions", () => {
 
 	it("Club page edit", () => {
 		cy.login();
-		cy.visit("https://dashboard.test.meshtrail.si/clubs/halden-sk");
+		cy.visit("https://dashboard.track.meshtrail.si/clubs/halden-sk");
 		cy.contains(".admin-user-div", "test-user");
 		cy.get(".admin-user-div").should("have.length", 2);
 		cy.get(".remove-admin-btn").eq(1).click();
@@ -21,7 +21,7 @@ context("Dashboard actions", () => {
 
 	it("Contribution page", () => {
 		cy.visit(
-			"https://dashboard.test.meshtrail.si/contribute/halden-sk/open-registration-upload-allowed/",
+			"https://dashboard.track.meshtrail.si/contribute/halden-sk/open-registration-upload-allowed/",
 		);
 		cy.contains("Register");
 		cy.get("#id_name").type("Thierry Gueorgiou");
@@ -42,7 +42,7 @@ context("Dashboard actions", () => {
 
 	it("Particiption page", () => {
 		cy.login();
-		cy.visit("https://dashboard.test.meshtrail.si/participations");
+		cy.visit("https://dashboard.track.meshtrail.si/participations");
 		cy.contains(
 			"My event with open registration and upload allowed by Halden SK as Aatos (A)",
 		);
@@ -63,7 +63,7 @@ context("Dashboard actions", () => {
 	});
 
 	it("Registration website", () => {
-		cy.visit("https://registration.test.meshtrail.si");
+		cy.visit("https://registration.track.meshtrail.si");
 		cy.contains("My event with open registration and upload allowed");
 		cy.contains("My future event with open registration");
 		cy.contains("My future event with open registration and upload allowed");
@@ -71,7 +71,7 @@ context("Dashboard actions", () => {
 
 	it("Manage devices", () => {
 		cy.login();
-		cy.visit("https://dashboard.test.meshtrail.si/clubs/");
+		cy.visit("https://dashboard.track.meshtrail.si/clubs/");
 		cy.contains("Halden SK").click();
 		cy.contains("Devices").click();
 		cy.contains("Add new device").click();
@@ -94,7 +94,7 @@ context("Dashboard actions", () => {
 
 	it("Upgrade account", () => {
 		cy.login();
-		cy.visit("https://dashboard.test.meshtrail.si/clubs/");
+		cy.visit("https://dashboard.track.meshtrail.si/clubs/");
 		cy.contains("Halden SK").click();
 		cy.contains("Upgrade to our paid plan!").click();
 		cy.location("pathname").should("eq", "/clubs/halden-sk/upgrade");
@@ -107,12 +107,12 @@ context("Dashboard actions", () => {
 
 	it("Import map", () => {
 		cy.login();
-		cy.visit("https://dashboard.test.meshtrail.si/clubs/");
+		cy.visit("https://dashboard.track.meshtrail.si/clubs/");
 		cy.contains("Halden SK").click();
 
 		for (const gpxFileName of ["trk", "waypoint", "waypoint+trk"]) {
 			cy.visit(
-				"https://dashboard.test.meshtrail.si/clubs/halden-sk/maps/upload-gpx",
+				"https://dashboard.track.meshtrail.si/clubs/halden-sk/maps/upload-gpx",
 			);
 			cy.get("#id_gpx_file").selectFile(
 				`cypress/fixtures/gpx/${gpxFileName}.gpx`,
@@ -129,7 +129,7 @@ context("Dashboard actions", () => {
 			"maps/tiled.kmz",
 		]) {
 			cy.visit(
-				"https://dashboard.test.meshtrail.si/clubs/halden-sk/maps/upload-kmz",
+				"https://dashboard.track.meshtrail.si/clubs/halden-sk/maps/upload-kmz",
 			);
 			cy.get("#id_file").selectFile(`cypress/fixtures/${kmzFileName}`);
 			cy.get("button:not([type]),button[type=submit]").click();
@@ -141,10 +141,10 @@ context("Dashboard actions", () => {
 
 	it("Create map from image", () => {
 		cy.login();
-		cy.visit("https://dashboard.test.meshtrail.si/clubs/");
+		cy.visit("https://dashboard.track.meshtrail.si/clubs/");
 		cy.contains("Halden SK").click();
 
-		cy.visit("https://dashboard.test.meshtrail.si/clubs/halden-sk/maps/new");
+		cy.visit("https://dashboard.track.meshtrail.si/clubs/halden-sk/maps/new");
 
 		cy.get("#id_name").type("Jukola 2019 - 1st Leg (manual calibration)");
 
@@ -207,14 +207,14 @@ context("Dashboard actions", () => {
 
 	it("Create events", () => {
 		cy.login();
-		cy.visit("https://dashboard.test.meshtrail.si/clubs/");
+		cy.visit("https://dashboard.track.meshtrail.si/clubs/");
 		cy.contains("Halden SK").click();
 
 		// Create Map
 		cy.createMap();
 
 		// Create Event with minimal info
-		cy.visit("https://dashboard.test.meshtrail.si/clubs/halden-sk/events/");
+		cy.visit("https://dashboard.track.meshtrail.si/clubs/halden-sk/events/");
 		cy.get("a").contains("Create new event").click();
 		cy.location("pathname").should("eq", "/clubs/halden-sk/events/new");
 
@@ -260,8 +260,8 @@ context("Dashboard actions", () => {
 
 		// Test the event view
 		// TODO: move to own test
-		cy.visit("https://halden-sk.test.meshtrail.si/Jukola-2019-1st-leg");
-		cy.origin("https://halden-sk.test.meshtrail.si", () => {
+		cy.visit("https://halden-sk.track.meshtrail.si/Jukola-2019-1st-leg");
+		cy.origin("https://halden-sk.track.meshtrail.si", () => {
 			cy.contains("Niels Christian Hellerud", { timeout: 20_000 }); // in competitor list
 
 			//// toggle competitor
@@ -321,7 +321,7 @@ context("Dashboard actions", () => {
 		// Create second event with all fields info
 		cy.createMap("Another map");
 		cy.intercept("POST", "/clubs/halden-sk/events/new").as("eventSubmit");
-		cy.visit("https://dashboard.test.meshtrail.si/clubs/halden-sk/events/new");
+		cy.visit("https://dashboard.track.meshtrail.si/clubs/halden-sk/events/new");
 		cy.get("#id_name").type("Jukola 2019 - 2nd Leg");
 		cy.get("#id_event_set-ts-control").parent().click().wait(300);
 		cy.get("#id_event_set-ts-dropdown > .option").eq(1).click().wait(300);
@@ -351,8 +351,8 @@ context("Dashboard actions", () => {
 		cy.location("pathname").should("eq", "/clubs/halden-sk/events/");
 
 		// test the event view
-		cy.visit("https://halden-sk.test.meshtrail.si/Jukola-2019-2nd-leg");
-		cy.origin("https://halden-sk.test.meshtrail.si", () => {
+		cy.visit("https://halden-sk.track.meshtrail.si/Jukola-2019-2nd-leg");
+		cy.origin("https://halden-sk.track.meshtrail.si", () => {
 			cy.contains("Björn Ekeberg", { timeout: 20_000 });
 			cy.contains("Another map", { timeout: 20_000 });
 		});

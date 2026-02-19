@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 NAME=meshtrail
-DOMAIN=test.meshtrail.si # Use your own domain name
+DOMAIN=track.meshtrail.si # Use your own domain name
 
 mkdir -p "letsencrypt/live/${DOMAIN}/"
 cd "letsencrypt/live/${DOMAIN}/"

@@ -8,7 +8,7 @@ module.exports = defineConfig({
 		setupNodeEvents(on, config) {
 			return require("./cypress/plugins/index.js")(on, config);
 		},
-		baseUrl: "https://dashboard.test.meshtrail.si",
+		baseUrl: "https://dashboard.track.meshtrail.si",
 	},
 	component: {
 		devServer: {

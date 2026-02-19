@@ -46,13 +46,13 @@ class WebHookTestCase(EssentialApiBase):
         self.club = Club.objects.create(name="Kemiön Kiilat", slug="kiilat")
         self.club.creation_date = now() - timedelta(days=14)
         self.club.admins.set([self.user])
-        self.ls_client = LemonSqueezyAPIClient(HTTP_HOST="api.test.meshtrail.si")
+        self.ls_client = LemonSqueezyAPIClient(HTTP_HOST="api.track.meshtrail.si")
 
     def test_invalid_signature(self):
         url = self.reverse_and_check(
             "webhooks:lemonsqueezy_webhook", "/webhooks/lemonsqueezy"
         )
-        client = APIClient(HTTP_HOST="api.test.meshtrail.si")
+        client = APIClient(HTTP_HOST="api.track.meshtrail.si")
         res = client.post(url, {"random": 123})
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 

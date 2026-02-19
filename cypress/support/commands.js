@@ -1,14 +1,14 @@
 Cypress.Commands.add(
 	"login",
 	(username = "admin", password = "pa$$word123") => {
-		cy.visit("https://dashboard.test.meshtrail.si/login");
+		cy.visit("https://dashboard.track.meshtrail.si/login");
 		cy.get("#id_login").type(username);
 		cy.get("#id_password").type(`${password}{enter}`);
 	},
 );
 
 Cypress.Commands.add("createClub", (name = "Kangasala SK") => {
-	cy.visit("https://dashboard.test.meshtrail.si/clubs/new");
+	cy.visit("https://dashboard.track.meshtrail.si/clubs/new");
 	cy.get("#id_name").type(name);
 	cy.get("button:not([type]),button[type=submit]").click();
 	cy.contains("successfully");
@@ -17,7 +17,7 @@ Cypress.Commands.add("createClub", (name = "Kangasala SK") => {
 Cypress.Commands.add(
 	"createMap",
 	(name = "Jukola 2019 - 1st Leg", club = "halden-sk") => {
-		cy.visit(`https://dashboard.test.meshtrail.si/clubs/${club}/maps/new`);
+		cy.visit(`https://dashboard.track.meshtrail.si/clubs/${club}/maps/new`);
 		cy.fixture("Jukola2019/1/map.jpg", { encoding: null }).as("mapFile");
 		cy.get("#id_name").clear().type(name).blur();
 		cy.get("#id_image").selectFile({

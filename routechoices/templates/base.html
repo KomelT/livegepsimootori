@@ -65,10 +65,12 @@
                 {% endif %}
             {% endblock footer %}
         {% endblock body %}
-        <script
-            src="https://browser.sentry-cdn.com/10.29.0/bundle.min.js"
-            crossorigin="anonymous"
-        ></script>
+        {% if sentry_dsn %}
+            <script
+                src="https://browser.sentry-cdn.com/10.29.0/bundle.min.js"
+                crossorigin="anonymous"
+            ></script>
+        {% endif %}
         <script src="{% static 'scripts/load-local-variables.js' %}?_=2023112700"
                 data-site-version="{{ version }}"
                 data-sentry-dsn="{{ sentry_dsn }}"

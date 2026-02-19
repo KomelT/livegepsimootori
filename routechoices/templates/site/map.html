@@ -69,8 +69,10 @@
                 </div>
             </div>
         </footer>
-        <script src="https://browser.sentry-cdn.com/7.114.0/bundle.min.js"
-                crossorigin="anonymous"></script>
+        {% if sentry_dsn %}
+            <script src="https://browser.sentry-cdn.com/7.114.0/bundle.min.js"
+                    crossorigin="anonymous"></script>
+        {% endif %}
         <script src="{% static 'scripts/load-local-variables.js' %}?_=2023112700"
                 data-api-root="{% host_url 'api_doc' host 'api' %}"></script>
         {% compress js %}
