@@ -689,7 +689,7 @@ function RCEvent(infoURL, clockURL, locale) {
 				text,
 				callback: () => {
 					window.open(
-						`https://map.routechoices.com/?latlon=${e.latlng.lat},${e.latlng.lng}`,
+						`https://map.track.meshtrail.si/?latlon=${e.latlng.lat},${e.latlng.lng}`,
 					);
 				},
 			});

@@ -31,16 +31,16 @@ class Command(BaseCommand):
         )
         print(f"  Sending Email to {", ".join(to_emails)}\n")
         msg = EmailMessage(
-            f'[Routechoices.com] ACTION REQUIRED, Your club "{club.name}" may get deleted in {days}',
+            f'[Track.meshtrail.si] ACTION REQUIRED, Your club "{club.name}" may get deleted in {days}',
             f"""Hi,
 
-We've noticed you haven't signed in to your Routechoices.com account in a while. In fact it's been more than a year! We routinely remove inactive accounts to ensure we're not storing any data you don't want us to.
+We've noticed you haven't signed in to your Track.meshtrail.si account in a while. In fact it's been more than a year! We routinely remove inactive accounts to ensure we're not storing any data you don't want us to.
 
-This email is to let you know that in {days} time we'll be deleting your inactive Routechoices.com club "{club.name}", along with any data in your club (such as your maps and events).
+This email is to let you know that in {days} time we'll be deleting your inactive Track.meshtrail.si club "{club.name}", along with any data in your club (such as your maps and events).
 
 It's super simple to stop this from happening. Just sign in!
 
-https://www.routechoices.com/login
+https://www.track.meshtrail.si/login
 """,
             settings.DEFAULT_FROM_EMAIL,
             list(to_emails),
@@ -60,12 +60,12 @@ https://www.routechoices.com/login
             )
             print(f"  Sending Email to {", ".join(to_emails)}\n")
             msg = EmailMessage(
-                f'[Routechoices.com] Your club "{club.name}" has been deleted',
+                f'[Track.meshtrail.si] Your club "{club.name}" has been deleted',
                 f"""Hi,
 
-We've noticed you haven't signed in to your Routechoices.com account in a while. In fact it's been more than a year! We routinely remove inactive accounts to ensure we're not storing any data you don't want us to.
+We've noticed you haven't signed in to your Track.meshtrail.si account in a while. In fact it's been more than a year! We routinely remove inactive accounts to ensure we're not storing any data you don't want us to.
 
-This email is to let you know that we have now deleted your inactive Routechoices.com club "{club.name}", along with any data in your club (such as your maps and events).
+This email is to let you know that we have now deleted your inactive Track.meshtrail.si club "{club.name}", along with any data in your club (such as your maps and events).
 """,
                 settings.DEFAULT_FROM_EMAIL,
                 list(to_emails),

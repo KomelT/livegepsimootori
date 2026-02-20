@@ -873,7 +873,7 @@ class DeviceAdmin(admin.ModelAdmin):
             return "-"
         lat, lon = round(lat, 5), round(lon, 5)
         return format_html(
-            '<a href="https://map.routechoices.com/?latlon={},{}" target="_blank">{}, {}</a>',
+            '<a href="https://map.track.meshtrail.si/?latlon={},{}" target="_blank">{}, {}</a>',
             lat,
             lon,
             lat,
@@ -994,7 +994,7 @@ class MapAdmin(admin.ModelAdmin):
         lat = round(center.latitude, 5)
         lon = round(center.longitude, 5)
         return format_html(
-            '<a href="https://map.routechoices.com/?latlon={},{}" target="_blank">{}, {}</a>',
+            '<a href="https://map.track.meshtrail.si/?latlon={},{}" target="_blank">{}, {}</a>',
             lat,
             lon,
             lat,

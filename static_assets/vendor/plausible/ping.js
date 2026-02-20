@@ -8,7 +8,7 @@
 
     var clubSlug = window.document.currentScript.dataset.clubSlug;
     var analyticsUrl = clubSlug
-      ? "https://www.routechoices.com/" + clubSlug + window.location.pathname
+      ? "https://www.track.meshtrail.si/" + clubSlug + window.location.pathname
       : window.location.href;
 
 
@@ -84,7 +84,7 @@
 			})
 		}).catch(function() {});
         if (clubSlug) {
-            e.d = clubSlug + ".routechoices.com";
+            e.d = clubSlug + ".track.meshtrail.si";
             e.u = o.href;
             window.fetch && fetch(t, {
                 method: "POST",

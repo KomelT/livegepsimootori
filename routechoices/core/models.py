@@ -228,7 +228,7 @@ class Club(models.Model):
             validate_domain_slug,
         ],
         unique=True,
-        help_text=".routechoices.com",
+        help_text=".track.meshtrail.si",
     )
     slug_changed_from = models.CharField(
         max_length=50,
@@ -245,7 +245,7 @@ class Club(models.Model):
 
 Follow our events live or replay them later.
 
-*This website is powered by Routechoices.com*""",
+*This website is powered by Track.meshtrail.si*""",
         help_text=(
             "This text will be displayed on the club site frontpage, "
             "use markdown formatting"
@@ -1602,7 +1602,7 @@ class Event(models.Model, SomewhereOnEarth):
         upload_to=geojson_upload_path,
         null=True,
         blank=True,
-        help_text='A <a href="//www.routechoices.com/guide/geojson" taget="_blank" rel="nofollow noopener">GeoJSON CSS</a> file.',
+        help_text='A <a href="//www.track.meshtrail.si/guide/geojson" taget="_blank" rel="nofollow noopener">GeoJSON CSS</a> file.',
         storage=OverwriteImageStorage(aws_s3_bucket_name=settings.AWS_S3_BUCKET),
     )
 
@@ -2652,7 +2652,7 @@ class Device(models.Model, SomewhereOnEarth):
             if to_emails:
                 msg = EmailMessage(
                     (
-                        f"Routechoices.com - SOS from competitor {competitor.name}"
+                        f"Track.meshtrail.si - SOS from competitor {competitor.name}"
                         f" in event {event.name} [{now().isoformat()}]"
                     ),
                     (

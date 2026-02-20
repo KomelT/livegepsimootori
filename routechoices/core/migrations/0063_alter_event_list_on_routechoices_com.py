@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             model_name="event",
             name="list_on_routechoices_com",
             field=models.BooleanField(
-                default=False, verbose_name="Listed on Routechoices.com events page"
+                default=False, verbose_name="Listed on Track.meshtrail.si events page"
             ),
         ),
     ]

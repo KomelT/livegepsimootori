@@ -80,7 +80,7 @@
             <script defer
                     {% if request.club_slug %}data-club-slug="{{ request.club_slug }}"{% endif %}
                     data-domain="{{ site.domain }}"
-                    data-api="https://www.routechoices.com/ping"
+                    data-api="https://www.track.meshtrail.si/ping"
                     src="{% static 'vendor/plausible/ping.js' %}?v=2025041302"></script>
         {% endif %}
         {% compress js %}

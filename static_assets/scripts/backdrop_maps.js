@@ -28,7 +28,7 @@ const backdropMaps = {
 		layers: "peruskartta",
 	}),
 	"mapant-ee": L.tileLayer(
-		"https://tiles.routechoices.com/proxy/ee/{z}/{x}/{y}.webp",
+		"https://tiles.track.meshtrail.si/proxy/ee/{z}/{x}/{y}.webp",
 		{
 			attribution: "&copy; mapantee.gokartor.se and Estonian Land Board",
 			className: "wms256",
@@ -49,7 +49,7 @@ const backdropMaps = {
 		},
 	),
 	"topo-uk": L.tileLayer(
-		"https://tiles.routechoices.com/proxy/uk/{z}/{x}/{y}.webp",
+		"https://tiles.track.meshtrail.si/proxy/uk/{z}/{x}/{y}.webp",
 		{
 			attribution: "&copy; Ordnance Survey",
 			className: "wms256",
@@ -66,14 +66,14 @@ const backdropMaps = {
 		className: "wms256",
 	}),
 	"mapant-ch": L.tileLayer(
-		"https://tiles.routechoices.com/proxy/ch/{z}/{x}/{y}.webp",
+		"https://tiles.track.meshtrail.si/proxy/ch/{z}/{x}/{y}.webp",
 		{
 			attribution: "&copy; MapAnt.ch",
 			className: "wms256",
 		},
 	),
 	"mapant-se": L.tileLayer(
-		"https://tiles.routechoices.com/proxy/se/{z}/{x}/{y}.webp",
+		"https://tiles.track.meshtrail.si/proxy/se/{z}/{x}/{y}.webp",
 		{
 			attribution: "&copy; gokartor.se",
 			className: "wms256",

@@ -44,7 +44,7 @@
               <xsl:attribute name="href">
                 <xsl:value-of select="/rss/channel/link"/>
               </xsl:attribute>
-              Go visit Routechoices.com
+              Go visit Track.meshtrail.si
             </a>
 
             <h2 class="pt-3">Recent events</h2>

@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
                 default=(
                     "## Live GPS Tracking\n\n"
                     "Follow our events live or replay them later.\n\n"
-                    "*This website is powered by Routechoices.com*"
+                    "*This website is powered by Track.meshtrail.si*"
                 ),
                 help_text=(
                     "This text will be displayed on the club site frontpage,"

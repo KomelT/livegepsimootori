@@ -88,7 +88,7 @@ class Command(BaseCommand):
                 continue
 
             if not check_dns_records(domain):
-                self.stderr.write("Domain is not pointing to routechoices.com anymore")
+                self.stderr.write("Domain is not pointing to track.meshtrail.si anymore")
                 club.domain = ""
                 club.save()
                 continue
@@ -102,7 +102,7 @@ class Command(BaseCommand):
                 account=acct_key,
                 cert_key=AcmeKey.create("secp256r1"),
                 is_new_acct=True,
-                contact_email="raphael@routechoices.com",
+                contact_email="raphael@track.meshtrail.si",
             )
 
             Path(f"{settings.BASE_DIR}/nginx/certs/{domain}.lock").touch()
@@ -175,7 +175,7 @@ class Command(BaseCommand):
                 continue
 
             if not check_dns_records(domain):
-                self.stderr.write("Domain is not pointing to routechoices.com anymore")
+                self.stderr.write("Domain is not pointing to track.meshtrail.si anymore")
                 club.domain = ""
                 club.save()
                 continue
@@ -201,7 +201,7 @@ class Command(BaseCommand):
                 account=acct_key,
                 cert_key=cert_key,
                 is_new_acct=(not account_exists),
-                contact_email="raphael@routechoices.com",
+                contact_email="raphael@track.meshtrail.si",
             )
             try:
                 certificate = client.get_certificate()

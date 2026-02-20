@@ -1,6 +1,6 @@
 {
-	"name": "Routechoices.com",
-	"short_name": "Routechoices.com",
+	"name": "Track.meshtrail.si",
+	"short_name": "Track.meshtrail.si",
 	"icons": [
 		{
 			"src": "/icon-192.png?v=20250709",
@@ -15,6 +15,6 @@
 	],
 	"theme_color": "#f6f6f6",
 	"background_color": "#f6f6f6",
-	"start_url": "https://www.routechoices.com",
+	"start_url": "https://www.track.meshtrail.si",
 	"display": "standalone"
 }

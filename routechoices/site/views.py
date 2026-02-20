@@ -139,7 +139,7 @@ def contact(request):
         if form.is_valid():
             from_email = EmailAddress.objects.get_primary(request.user)
             subject = (
-                "Routechoices.com contact form - "
+                "Track.meshtrail.si contact form - "
                 f'{form.cleaned_data["subject"]} [{from_email}]'
             )
             message = form.cleaned_data["message"]

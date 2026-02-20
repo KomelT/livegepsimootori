@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             field=models.TextField(
                 blank=True,
                 default=(
-                    "# GPS tracking powered by routechoices.com\n\n"
+                    "# GPS tracking powered by track.meshtrail.si\n\n"
                     "Browse our events here."
                 ),
                 help_text=(

@@ -1457,7 +1457,7 @@ class CompetitionTestCase(EssentialApiBase):
         device.send_sos()
         self.assertEqual(len(mail.outbox), 1)
         self.assertTrue(
-            "Routechoices.com - SOS from competitor Alice" in mail.outbox[0].subject
+            "Track.meshtrail.si - SOS from competitor Alice" in mail.outbox[0].subject
         )
         self.assertTrue(
             "Latest SOS known location is latitude, longitude: 12.34567, 123.45678"

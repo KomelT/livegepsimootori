@@ -462,7 +462,7 @@ def check_cname_record(domain):
 
     answer = data.get("Answer", [])
     for ans in answer:
-        if ans.get("data") == "cname.routechoices.com." and ans.get("type") == 5:
+        if ans.get("data") == "cname.track.meshtrail.si." and ans.get("type") == 5:
             return True
     return False
 

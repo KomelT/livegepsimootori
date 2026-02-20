@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		const encodedData = $("#id_locations_encoded").val();
 		const positions = PositionArchive.fromEncoded(encodedData);
 		const posArray = positions.getArray();
-		let result = `<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="Routechoices.com">
+		let result = `<gpx xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="Track.meshtrail.si">
   <metadata/>
   <trk>
     <name></name>

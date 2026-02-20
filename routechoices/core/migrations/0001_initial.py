@@ -63,7 +63,7 @@ class Migration(migrations.Migration):
                 (
                     "slug",
                     models.CharField(
-                        help_text=".routechoices.com",
+                        help_text=".track.meshtrail.si",
                         max_length=50,
                         unique=True,
                         validators=[routechoices.lib.validators.validate_domain_slug],
@@ -85,7 +85,7 @@ class Migration(migrations.Migration):
                     models.TextField(
                         blank=True,
                         default=(
-                            "# GPS tracking powered by routechoices.com\n\n"
+                            "# GPS tracking powered by track.meshtrail.si\n\n"
                             "Browse our events here."
                         ),
                         help_text=(
@@ -944,7 +944,7 @@ class Migration(migrations.Migration):
             field=models.TextField(
                 blank=True,
                 default=(
-                    "# GPS tracking powered by routechoices.com\n\n"
+                    "# GPS tracking powered by track.meshtrail.si\n\n"
                     "Browse our events here."
                 ),
                 help_text=(

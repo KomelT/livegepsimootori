@@ -16,7 +16,7 @@ Additionally, our integrated, privacy-friendly analytics tool provides valuable 
 
 ## For all your events, no matter the size...
 
-Since 2019, Routechoices.com has proudly hosted thousands events of all sizes, ranging from intimate personal training sessions to large-scale international gatherings.
+Since 2019, Track.meshtrail.si has proudly hosted thousands events of all sizes, ranging from intimate personal training sessions to large-scale international gatherings.
 
 Our state-of-the-art server, located in Finland, is finely tuned to handle events with hundreds of participants and thousands of online viewers from around the globe.
 
@@ -32,6 +32,6 @@ Our platform puts you in control, letting you combine cutting-edge live GPS trac
 
 ## Extensive API for Developers
 
-Routechoices.com offer an API that can be used by developers to extend what can be done with the GPS data.
+Track.meshtrail.si offer an API that can be used by developers to extend what can be done with the GPS data.
 
-[API Documentation](https://api.routechoices.com/)
+[API Documentation](https://api.track.meshtrail.si/)

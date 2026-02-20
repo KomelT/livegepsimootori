@@ -171,7 +171,7 @@ def event_set_creation(request):
                         "backdrop": "blank",
                         "open_registration": False,
                         "open_route_upload": False,
-                        "url": "http://www.routechoices.com/ksk/Jukola-2019-1st-leg",
+                        "url": "http://www.track.meshtrail.si/ksk/Jukola-2019-1st-leg",
                     },
                     {
                         "id": "ohFYzJep1hI",
@@ -186,7 +186,7 @@ def event_set_creation(request):
                         "privacy": "public",
                         "open_registration": False,
                         "open_route_upload": False,
-                        "url": "http://www.routechoices.com/ksk/Jukola-2019-2nd-leg",
+                        "url": "http://www.track.meshtrail.si/ksk/Jukola-2019-2nd-leg",
                     },
                     "...",
                 ]
@@ -271,7 +271,7 @@ def event_set_creation(request):
                     "backdrop": "blank",
                     "open_registration": False,
                     "open_route_upload": False,
-                    "url": "http://www.routechoices.com/ksk/Jukola-2019-1st-leg",
+                    "url": "http://www.track.meshtrail.si/ksk/Jukola-2019-1st-leg",
                 },
             },
         ),
@@ -454,7 +454,7 @@ def event_list(request):
                     {
                         "name": "Kangasala SK",
                         "slug": "ksk",
-                        "url": "https://ksk.routechoices.com/",
+                        "url": "https://ksk.track.meshtrail.si/",
                         "owner": False,
                     },
                     {
@@ -517,14 +517,14 @@ def club_list_view(request):
                         "privacy": "public",
                         "open_registration": False,
                         "open_route_upload": False,
-                        "url": "https://ksk.routechoices.com/Jukola-2019-1st-leg",
+                        "url": "https://ksk.track.meshtrail.si/Jukola-2019-1st-leg",
                         "shortcut": "https://routechoic.es/ksk/Jukola-2019-1st-leg",
                         "backdrop": "osm",
                         "send_interval": 5,
                         "tail_length": 60,
                     },
                     "data_url": (
-                        "https://www.routechoices.com/api/events/PlCG3xFS-f4/data"
+                        "https://www.track.meshtrail.si/api/events/PlCG3xFS-f4/data"
                     ),
                     "announcement": "",
                     "maps": [
@@ -537,7 +537,7 @@ def club_list_view(request):
                             },
                             "rotation": 3.25,
                             "url": (
-                                "https://www.routechoices.com/api/events/PlCG3xFS-f4/map"
+                                "https://www.track.meshtrail.si/api/events/PlCG3xFS-f4/map"
                             ),
                             "title": "",
                             "hash": "u8cWoEiv",

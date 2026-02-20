@@ -104,7 +104,7 @@ jobs:
           name: Deploy
           command: |
             export DEPLOY_CMD="/apps/routechoices-server/bin/deploy $CIRCLE_SHA1"
-            ssh apps@routechoices.com $DEPLOY_CMD
+            ssh apps@track.meshtrail.si $DEPLOY_CMD
 
   build-docker:
     machine:

@@ -15,15 +15,15 @@ class Command(BaseCommand):
         call_command("migrate", "--noinput")
         s = Site.objects.first()
         s.domain = "track.meshtrail.si"
-        s.name = "Routechoices.com"
+        s.name = "Track.meshtrail.si"
         s.save()
         Device.objects.create(aid=12345678)
         Device.objects.create(aid=10000000)
         admin_user = User.objects.create_user(
-            "admin", "admin@routechoices.com", "pa$$word123"
+            "admin", "admin@track.meshtrail.si", "pa$$word123"
         )
         other_user = User.objects.create_user(
-            "test-user", "test@routechoices.com", "pa$$word123"
+            "test-user", "test@track.meshtrail.si", "pa$$word123"
         )
 
         club = Club.objects.create(name="Halden SK", slug="halden-sk")

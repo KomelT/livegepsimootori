@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             name="geojson_layer",
             field=models.FileField(
                 blank=True,
-                help_text='A <a href="//www.routechoices.com/guide/geojson" taget="_blank" rel="nofollow noopener">GeoJSON CSS</a> file.',
+                help_text='A <a href="//www.track.meshtrail.si/guide/geojson" taget="_blank" rel="nofollow noopener">GeoJSON CSS</a> file.',
                 null=True,
                 storage=routechoices.lib.storages.OverwriteImageStorage(
                     aws_s3_bucket_name="routechoices"

@@ -11,8 +11,8 @@ schema_view = get_schema_view(
         title="Routechoices - Live GPS Tracking - API",
         default_version="v1",
         description="Routechoices - Live GPS Tracking - API",
-        terms_of_service="https://www.routechoices.com/tos/",
-        contact=openapi.Contact(email="info@routechoices.com"),
+        terms_of_service="https://www.track.meshtrail.si/tos/",
+        contact=openapi.Contact(email="info@track.meshtrail.si"),
         license=openapi.License(
             name="GPLv3", url="https://www.gnu.org/licenses/gpl-3.0.en.html"
         ),

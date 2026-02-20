@@ -19,7 +19,7 @@ It includes:
 
 This project heavily rely on the Django and the Tornado Web python frameworks.
 
-Hosted at https://www.routechoices.com
+Hosted at https://www.track.meshtrail.si
 
 ```
 docker build -t rphlo/routechoices-dev-server:latest -f docker/django.dockerfile .
