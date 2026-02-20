@@ -724,6 +724,10 @@ def create_competitor(request):
     if request.user.is_authenticated:
         is_event_admin = event.club.admins.filter(id=request.user.id).exists()
 
+    if not getattr(settings, "PUBLIC_REGISTRATION_ENABLED", True):
+        if not is_event_admin:
+            raise PermissionDenied()
+
     if not event.open_registration:
         if not is_event_admin:
             raise PermissionDenied()

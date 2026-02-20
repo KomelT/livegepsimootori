@@ -42,6 +42,10 @@ BANNED_COUNTRIES = env.list("BANNED_COUNTRIES")
 
 GPSSEURANTA_SERVER_ADDR = env.str("GPSSEURANTA_SERVER_ADDR")
 
+PUBLIC_SITE_EVENT_ONLY = env.bool("PUBLIC_SITE_EVENT_ONLY", default=False)
+PUBLIC_REGISTRATION_ENABLED = env.bool("PUBLIC_REGISTRATION_ENABLED", default=True)
+ACCOUNT_SIGNUP_ENABLED = env.bool("ACCOUNT_SIGNUP_ENABLED", default=True)
+
 DATABASES = {"default": env.db()}
 # DATABASES["default"]["CONN_MAX_AGE"] = env.int("DATABASE_CONN_MAX_AGE")
 DATABASES["default"]["CONN_HEALTH_CHECKS"] = True
@@ -134,6 +138,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "oauth2_provider.middleware.OAuth2TokenMiddleware",
     "routechoices.core.middleware.OAuth2GetTokenMiddleware",
+    "routechoices.core.middleware.PublicSiteLoginRequiredMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django_hosts.middleware.HostsResponseMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",

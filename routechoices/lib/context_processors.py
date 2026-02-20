@@ -22,6 +22,9 @@ def site(request):
         "site": current_site,
         "theme": get_theme,
         "analytics_enabled": bool(getattr(settings, "ANALYTICS_API_KEY")),
+        "public_registration_enabled": getattr(
+            settings, "PUBLIC_REGISTRATION_ENABLED", True
+        ),
         "DEBUG": settings.DEBUG,
         "version": version,
         "sentry_dsn": settings.SENTRY_DSN if hasattr(settings, "SENTRY_DSN") else "",

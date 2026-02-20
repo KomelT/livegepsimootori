@@ -5,6 +5,9 @@ from django.utils.http import url_has_allowed_host_and_scheme
 
 
 class SiteAccountAdapter(DefaultAccountAdapter):
+    def is_open_for_signup(self, request):
+        return getattr(settings, "ACCOUNT_SIGNUP_ENABLED", True)
+
     def is_safe_url(self, url):
         return url_has_allowed_host_and_scheme(
             url, allowed_hosts=settings.REDIRECT_ALLOWED_DOMAINS

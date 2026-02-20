@@ -20,3 +20,23 @@ It includes:
 This project heavily rely on the Django and the Tornado Web python frameworks.
 
 Hosted at https://www.routechoices.com
+
+```
+docker build -t rphlo/routechoices-dev-server:latest -f docker/django.dockerfile .
+
+./dc up -d
+./da migrate
+./da collectstatic --noinput
+./da compress --force
+
+
+./dc exec django
+python - <<'PY'
+from django.contrib.sites.models import Site
+s = Site.objects.get_current()
+s.domain = "track.meshtrail.si"
+s.name = "track.meshtrail.si"
+s.save()
+print("Updated site:", s.domain)
+PY
+```

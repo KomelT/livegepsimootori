@@ -366,3 +366,49 @@ class OAuth2GetTokenMiddleware:
 
         response = self.get_response(request)
         return response
+
+
+class PublicSiteLoginRequiredMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        if not getattr(settings, "PUBLIC_SITE_EVENT_ONLY", False):
+            return self.get_response(request)
+
+        if hasattr(request, "user") and request.user.is_authenticated:
+            return self.get_response(request)
+
+        host = getattr(request, "host", None)
+        host_name = getattr(host, "name", None)
+        path = request.path_info or "/"
+
+        if host_name == "www":
+            if self._is_public_www_path(path):
+                return self.get_response(request)
+            return redirect(settings.LOGIN_URL)
+
+        return self.get_response(request)
+
+    @staticmethod
+    def _is_public_www_path(path):
+        if path.startswith(("/static/", "/media/")):
+            return True
+        if path in (
+            "/events",
+            "/events/",
+            "/feed",
+            "/feed.rss",
+            "/robots.txt",
+            "/sitemap.xml",
+            "/llms.txt",
+        ):
+            return True
+        if path in (
+            "/favicon.ico",
+            "/apple-touch-icon.png",
+            "/icon-192.png",
+            "/icon-512.png",
+        ):
+            return True
+        return False

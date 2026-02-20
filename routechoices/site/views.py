@@ -240,6 +240,9 @@ class CustomAdminLoginView(CustomLoginView):
 
 
 def registration_view(request):
+    if not getattr(settings, "PUBLIC_REGISTRATION_ENABLED", True):
+        raise Http404()
+
     events = (
         Event.objects.select_related("club")
         .filter(open_registration=True, end_date__gt=now())

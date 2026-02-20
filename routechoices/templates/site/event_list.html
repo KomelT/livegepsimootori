@@ -194,22 +194,22 @@
                                                         position:relative;
                                                         z-index:11">
                                                 <span class="me-1">{{ event.competitors.count }} participant{{ event.competitors.count|pluralize:"s" }}</span>
-                                                {% if event.open_registration %}
+                                                {% if public_registration_enabled and event.open_registration %}
                                                     <span><i data-bs-toggle="tooltip"
    data-bs-title="Competitor registration enabled"
    class="me-1 fa-solid fa-user-plus"></i></span>
                                                 {% endif %}
-                                                {% if event.allow_route_upload %}
+                                                {% if public_registration_enabled and event.allow_route_upload %}
                                                     <span><i data-bs-toggle="tooltip"
    data-bs-title="GPS upload enabled"
    class="me-1 fa-solid fa-file-arrow-up"></i></span>
                                                 {% endif %}
                                                 <div class="mt-2">
-                                                    {% if event.open_registration %}
+                                                    {% if public_registration_enabled and event.open_registration %}
                                                         <a href="{% host_url 'event_contribute_view' slug=event.slug club_slug=event.club.slug host 'dashboard' %}"
                                                            class="me-1"><i class="fa-solid fa-solid fa-user-plus"></i> Enter</a>
                                                     {% endif %}
-                                                    {% if event.allow_route_upload %}
+                                                    {% if public_registration_enabled and event.allow_route_upload %}
                                                         <a href="{% host_url 'event_contribute_view' slug=event.slug club_slug=event.club.slug host 'dashboard' %}"
                                                            class="me-1"><i class="fa-solid fa-file-arrow-up"></i> Upload Route</a>
                                                     {% endif %}
@@ -298,13 +298,13 @@
                                                     position:relative;
                                                     z-index:11">
                                             <span class="me-1">{{ event.competitors.count }} participant{{ event.competitors.count|pluralize:"s" }}</span>
-                                            {% if event.open_registration %}
+                                            {% if public_registration_enabled and event.open_registration %}
                                                 <span><i data-bs-toggle="tooltip"
    data-bs-title="Competitor registration enabled"
    class="fa-solid fa-user-plus"></i></span>
                                             {% endif %}
                                             <div class="mt-2">
-                                                {% if event.open_registration %}
+                                                {% if public_registration_enabled and event.open_registration %}
                                                     <a class="me-1"
                                                        href="{% host_url 'event_contribute_view' slug=event.slug club_slug=event.club.slug host 'dashboard' %}"><i class="fa-solid fa-user-plus"></i> Enter</a>
                                                 {% endif %}

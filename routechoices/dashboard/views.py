@@ -1680,6 +1680,10 @@ def private_view(request, event_id):
 
 
 def event_contribute_view(request, club_slug, slug):
+    if not getattr(settings, "PUBLIC_REGISTRATION_ENABLED", True):
+        if not request.user.is_authenticated:
+            return redirect(settings.LOGIN_URL)
+
     event = get_object_or_404(
         Event.objects.all().select_related("club", "event_set"),
         club__slug=club_slug,

@@ -58,7 +58,7 @@
                         <i class="fa-solid fa-fw fa-users"></i>
                     </button>
                 </div>
-                {% if event.open_registration and not event.ended or event.allow_route_upload and event.started %}
+                {% if public_registration_enabled and (event.open_registration and not event.ended or event.allow_route_upload and event.started) %}
                     <div class="mb-1 mx-0" role="group">
                         <a class="btn btn-lg"
                            href="{% host_url 'event_contribute_view' slug=event.slug club_slug=event.club.slug host 'dashboard' %}"
