@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: app_user
       POSTGRES_PASSWORD: changeme
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql
     restart: always
     expose:
       - "5432"
